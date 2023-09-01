@@ -139,7 +139,8 @@ public class JobData {
 
                 allJobs.add(newJob);
             }
-            allJobs.sort((o1,o2) -> o1.get("name").toUpperCase().compareTo(o2.get("name").toUpperCase()));
+//            allJobs.sort((o1,o2) -> o1.get("name").toUpperCase().compareTo(o2.get("name").toUpperCase()));
+            //BONUS MISSION CAUSES TEST FAILURE!!!
             // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;
 
