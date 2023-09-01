@@ -50,7 +50,8 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        return new ArrayList<>(allJobs);
+
     }
 
     /**
@@ -73,7 +74,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toUpperCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -93,9 +94,18 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        // TODO - implement this method
-        return null;
+
+        for (HashMap<String,String> job : allJobs) {
+            for (String row : job.values()) {
+                if (row.toUpperCase().contains(value)) {
+                    jobs.add(job);
+                    break;
+                }
+            }
+        }
+        return jobs;
     }
 
     /**
@@ -129,7 +139,7 @@ public class JobData {
 
                 allJobs.add(newJob);
             }
-
+            allJobs.sort((o1,o2) -> o1.get("name").toUpperCase().compareTo(o2.get("name").toUpperCase()));
             // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;
 

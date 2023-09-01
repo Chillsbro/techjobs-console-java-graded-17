@@ -1,11 +1,10 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import javax.xml.namespace.QName;
+import java.util.*;
 
 /**
  * Created by LaunchCode
  */
+import java.util.Collections;
 public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
@@ -59,7 +58,7 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term:");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toUpperCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -124,8 +123,10 @@ public class TechJobs {
             System.out.println("No Results");
         } else {
             for (HashMap<String, String> entry : someJobs) {
+
                 System.out.println("*****");
                 for (Map.Entry<String, String> key : entry.entrySet()) {
+
                     System.out.println(key.getKey() + ": " + key.getValue());
                 }
                 System.out.println("*****" + "\n");
