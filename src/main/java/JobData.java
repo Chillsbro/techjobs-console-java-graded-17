@@ -139,8 +139,8 @@ public class JobData {
 
                 allJobs.add(newJob);
             }
-//            allJobs.sort((o1,o2) -> o1.get("name").toUpperCase().compareTo(o2.get("name").toUpperCase()));
-            //BONUS MISSION CAUSES TEST FAILURE!!!
+//          allJobs.sort((o1,o2) -> o1.get("name").toUpperCase().compareTo(o2.get("name").toUpperCase()));
+
             // flag the data as loaded, so we don't do it twice
             isDataLoaded = true;
 
